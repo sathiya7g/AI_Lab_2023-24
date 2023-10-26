@@ -1,6 +1,6 @@
 # Ex.No: 8  Logic Programming –  Medical Diagnosis Expert System
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE:  26/10/23                                                                          
+### REGISTER NUMBER : 212221220049
 ### AIM: 
 Write a Prolog program to build a medical Diagnosis Expert System.
 ###  Algorithm:
@@ -16,7 +16,27 @@ Write a Prolog program to build a medical Diagnosis Expert System.
 ### Program:
 
 
+% Define symptoms and diseases
+symptom(fever).
+symptom(cough).
+symptom(headache).
+symptom(rash).
+symptom(joint_pain).
 
+disease(flu, [fever, cough, headache]).
+disease(measles, [fever, cough, rash]).
+disease(dengue, [fever, rash, joint_pain]).
+
+% Define rules for diagnosis
+diagnose(Disease, Symptoms) :-
+    disease(Disease, DiseaseSymptoms),
+    subset(DiseaseSymptoms, Symptoms).
+
+% Subset predicate to check if one list is a subset of another
+subset([], _).
+subset([H|T], List) :-
+    member(H, List),
+    subset(T, List).
 
 
 
@@ -27,7 +47,7 @@ Write a Prolog program to build a medical Diagnosis Expert System.
 
 ### Output:
 
-
+![image](https://github.com/sathiya7g/AI_Lab_2023-24/blob/main/Screenshot%202023-10-26%20002614.png)
 
 ### Result:
 Thus the simple medical diagnosis system was built sucessfully.
