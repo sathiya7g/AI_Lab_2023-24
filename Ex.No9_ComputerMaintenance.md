@@ -1,6 +1,6 @@
 # Ex.No: 9  Logic Programming –  Computer Maintenance Expert System
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 26/10/23                                                                           
+### REGISTER NUMBER : 212221220049
 ### AIM: 
 Write a Prolog program to build a computer maintenance expert system.
 ###  Algorithm:
@@ -16,7 +16,29 @@ Write a Prolog program to build a computer maintenance expert system.
 ### Program:
 
 
+% Define components and issues
+component(cpu).
+component(memory).
+component(hard_drive).
+component(graphics_card).
+component(power_supply).
 
+issue(no_power, [power_supply]).
+issue(blue_screen, [memory, graphics_card]).
+issue(system_slow, [hard_drive, memory]).
+issue(fan_noise, [cpu]).
+issue(no_display, [graphics_card]).
+
+% Define rules for diagnosis
+diagnose_issue(Issue, Components) :-
+    issue(Issue, RequiredComponents),
+    subset(RequiredComponents, Components).
+
+% Subset predicate to check if one list is a subset of another
+subset([], _).
+subset([H|T], List) :-
+    member(H, List),
+    subset(T, List).
 
 
 
@@ -26,7 +48,7 @@ Write a Prolog program to build a computer maintenance expert system.
 
 
 ### Output:
-
+![image](https://github.com/sathiya7g/AI_Lab_2023-24/blob/main/Screenshot%202023-10-26%20004026.png)
 
 
 ### Result:
