@@ -50,7 +50,7 @@ not_gate(1, 0).
 
 ### Output:
 
-
+![image](https://github.com/sathiya7g/AI_Lab_2023-24/blob/main/Screenshot%202023-10-20%20175357.png)
 
 
 ### Result:
