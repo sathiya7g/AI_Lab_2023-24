@@ -1,15 +1,68 @@
-# Ex.No: 10 Learning – Use Supervised Learning  
+# Ex.No: 13 Learning – Use Supervised Learning  
 ### DATE:                                                                            
-### REGISTER NUMBER : 
+### REGISTER NUMBER : 212221220049
 ### AIM: 
-To write a program to train the classifier for -----------------.
+To write a program to train the classifier for RGB color predection
 ###  Algorithm:
+# Step 1: Import Necessary Libraries
+# Step 2: Define or Load the Dataset
+# Step 3: Convert Data to Arrays
+# Step 4: Split the Dataset
+# Step 5: Choose a Classifier
+# Step 6: Train the Classifier
+# Step 7: Take User Input
+# Step 8: Convert User Input to RGB
+# Step 9: Make Prediction
+# Step 10: Display Prediction
+
 
 ### Program:
+# Import necessary libraries
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import numpy as np
+
+# Generate a sample dataset (replace this with your actual dataset)
+# Here, we're using RGB values as features
+data = {
+    'red': {'rgb': [255, 0, 0], 'label': 'red'},
+    'green': {'rgb': [0, 255, 0], 'label': 'green'},
+    'blue': {'rgb': [0, 0, 255], 'label': 'blue'},
+    'yellow': {'rgb': [255, 255, 0], 'label': 'yellow'},
+    'purple': {'rgb': [128, 0, 128], 'label': 'purple'},
+    # Add more samples as needed
+}
+
+# Convert data into arrays
+colors = list(data.keys())
+rgb_values = np.array([data[color]['rgb'] for color in colors])
+labels = np.array([data[color]['label'] for color in colors])
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(rgb_values, labels, test_size=0.2, random_state=42)
+
+# Choose a classifier (Decision Tree in this example)
+classifier = DecisionTreeClassifier()
+
+# Train the classifier
+classifier.fit(X_train, y_train)
+
+# Make predictions on the test set
+predictions = classifier.predict(X_test)
+
+# Evaluate the accuracy of the classifier
+accuracy = accuracy_score(y_test, predictions)
+print(f"Accuracy: {accuracy}")
+
+# Example: Predict the color of a new RGB value
+new_rgb_value = np.array([[100, 150, 200]])
+predicted_color = classifier.predict(new_rgb_value)
+print(f"Predicted color for RGB {new_rgb_value}: {predicted_color}")
 
 
 ### Output:
 
-
+![image](C:\Users\sathy\OneDrive\Pictures\Screenshots\Screenshot 2023-11-02 082640.png)
 ### Result:
 Thus the system was trained successfully and the prediction was carried out.
