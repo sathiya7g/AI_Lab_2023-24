@@ -40,16 +40,8 @@ subset([H|T], List) :-
     member(H, List),
     subset(T, List).
 
-
-
-
-
-
-
-
 ### Output:
 ![image](https://github.com/sathiya7g/AI_Lab_2023-24/blob/main/Screenshot%202023-10-26%20004026.png)
-
 
 ### Result:
 Thus the simple omputer maintenance expert system was built sucessfully.
