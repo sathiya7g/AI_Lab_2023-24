@@ -1,5 +1,5 @@
 # Ex.No: 7  Logic Programming –  Logic Circuit Design
-### DATE:                                                                         
+### DATE: 
 ### REGISTER NUMBER : 212221220049
 ### AIM: 
 To write a logic program to design a circuit like half adder and half subtractor.
@@ -14,44 +14,41 @@ To write a logic program to design a circuit like half adder and half subtractor
 8. Stop the program.
 
 ### Program:
-% Define XOR gate
-xor_gate(0, 0, 0).
-xor_gate(0, 1, 1).
-xor_gate(1, 0, 1).
-xor_gate(1, 1, 0).
+```
+% Define the XOR gate
+xor(0, 0, 0).
+xor(0, 1, 1).
+xor(1, 0, 1).
+xor(1, 1, 0).
 
-% Define AND gate
-and_gate(0, 0, 0).
-and_gate(0, 1, 0).
-and_gate(1, 1, 1).
-and_gate(1, 0, 0).
+% Define the AND gate
+and(0, 0, 0).
+and(0, 1, 0).
+and(1, 0, 0).
+and(1, 1, 1).
 
-% Define OR gate
-or_gate(0, 0, 0).
-or_gate(0, 1, 1).
-or_gate(1, 0, 1).
-or_gate(1, 1, 1).
+% Define the NOT gate
+not(0, 1).
+not(1, 0).
 
-% Define half adder
-half_adder(A, B, Sum, Cout) :-
-    xor_gate(A, B, Sum),
-    and_gate(A, B, Cout).
+% Define the half-subtractor circuit
+half_subtractor(A, B, Diff, Borrow) :-
+    xor(A, B, Diff),
+    not(B, NotB),
+    and(A, NotB, Borrow).
 
-% Define half subtractor
-half_subtractor(A, B, Diff, Bout) :-
-    xor_gate(A, B, Diff),
-    not_gate(B, B_not),
-    and_gate(A, B_not, Bout).
+% Define the half-adder circuit
+half_adder(A, B, Sum, Carry) :-
+    xor(A, B, Sum),
+    and(A, B, Carry).
 
-% Define NOT gate
-not_gate(0, 1).
-not_gate(1, 0).
-
-
+```
 ### Output:
+### OUTPUT FOR HALF ADDER: <br>
+![image](https://github.com/HariHaranLK/AI_Lab_2023-24/assets/132996089/2baee3b7-49bb-472e-822f-c4fc9da837f7)
 
-![image](https://github.com/sathiya7g/AI_Lab_2023-24/blob/main/Screenshot%202023-10-20%20175357.png)
-
+### OUTPUT FOR HALF SUBTRACTOR: <br>
+![image](https://github.com/HariHaranLK/AI_Lab_2023-24/assets/132996089/c7f7f470-44bf-42a4-a0a7-c35f0c6f1506)
 
 ### Result:
 Thus the truth table of circuit verified sucessfully.
