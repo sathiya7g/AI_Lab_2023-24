@@ -1,5 +1,5 @@
 # Ex.No: 9  Logic Programming –  Computer Maintenance Expert System
-### DATE:                                                                           
+### DATE:                                                                            
 ### REGISTER NUMBER : 212221220049
 ### AIM: 
 Write a Prolog program to build a computer maintenance expert system.
@@ -14,34 +14,34 @@ Write a Prolog program to build a computer maintenance expert system.
 8. Find the fault of computer by passing query to system.
      
 ### Program:
-
-
-% Define components and issues
-component(cpu).
-component(memory).
-component(hard_drive).
-component(graphics_card).
-component(power_supply).
-
-issue(no_power, [power_supply]).
-issue(blue_screen, [memory, graphics_card]).
-issue(system_slow, [hard_drive, memory]).
-issue(fan_noise, [cpu]).
-issue(no_display, [graphics_card]).
-
-% Define rules for diagnosis
-diagnose_issue(Issue, Components) :-
-    issue(Issue, RequiredComponents),
-    subset(RequiredComponents, Components).
-
-% Subset predicate to check if one list is a subset of another
-subset([], _).
-subset([H|T], List) :-
-    member(H, List),
-    subset(T, List).
-
+```
+fault(printer_head) :-
+problem(not_printing),
+problem(missing_dots),
+problem(nonuniform_printing).
+fault(ribbon) :-
+problem(not_printing),
+problem(missing_dots),
+problem(spread_ink).
+fault(paper) :-
+problem(not_printing),
+problem(paper_jam),
+problem(out_of_paper).
+fault(motherboard) :-
+problem(long_beep),
+problem(short_beep).
+fault(hard_disc) :-
+problem(two_short_beeps),
+problem(blank_display).
+problem(not_printing).
+problem(missing_dots).
+problem(spread_ink).
+problem(two_short_beeps).
+problem(blank_display).
+```
 ### Output:
-![image](https://github.com/sathiya7g/AI_Lab_2023-24/blob/main/Screenshot%202023-10-26%20004026.png)
+
+![image](https://github.com/HariHaranLK/AI_Lab_2023-24/assets/132996089/20d72f5e-e196-4ffe-8fa4-8690eb71d778)
 
 ### Result:
 Thus the simple omputer maintenance expert system was built sucessfully.
